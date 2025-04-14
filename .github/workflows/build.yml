@@ -1,9 +1,9 @@
-name: Build, Push and Deploy
+name: Build and Push Docker Image
 
 on:
   push:
     branches:
-      - feature/TallerKubernetes  # o tu rama deseada
+      - feature/TallerKubernetes  # o la rama que uses
 
 jobs:
   deploy:
@@ -32,7 +32,3 @@ jobs:
         run: |
           docker build -t ricardoschmg/miapp:latest .
           docker push ricardoschmg/miapp:latest
-
-      - name: Deploy container
-        run: |
-          docker run -d --name miapp -p 8080:8080 ricardoschmg/miapp:latest
