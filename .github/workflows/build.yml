@@ -35,6 +35,4 @@ jobs:
 
       - name: Deploy container
         run: |
-          docker container stop miapp || true
-          docker container rm miapp || true
           docker run -d --name miapp -p 8080:8080 ricardoschmg/miapp:latest
